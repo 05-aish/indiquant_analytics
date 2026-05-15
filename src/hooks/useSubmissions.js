@@ -5,8 +5,7 @@ export function useSubmissions(){
     const [subs, setSubs] = useState([]);
     const [subsloading, setSubsLoading] = useState(true);
 
-    useEffect(() => {
-        async function fetchSubmissions() {
+    const fetchSubmissions = async () => {
             setSubsLoading(true);
             const { data, error } = await supabase
                 .from('submissions')
@@ -19,9 +18,10 @@ export function useSubmissions(){
             setSubsLoading(false);
         }
 
+    useEffect(() => {
         fetchSubmissions();
 
     },[]);
 
-    return { subs, subsloading };
+    return { subs, subsloading, refetch: fetchSubmissions };
 }

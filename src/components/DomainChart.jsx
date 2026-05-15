@@ -2,14 +2,12 @@ import React from 'react';
 import { useContributors } from '../hooks/useContributors';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
-const DomainChart = () => {
+const DomainChart = ({ contri }) => {
 
     const getColor = (index, total) => 
     `hsl(${180 + (index * 120) / total}, 70%, 60%)` 
-
-    const { contri, contriloading } = useContributors(); 
-    if (contriloading) return <div className="text-slate-500 text-sm">Loading...</div> 
-    
+  
+    if (!contri || contri.length === 0) return <div className="text-slate-500 text-sm">Loading...</div>
     const groupedDomainCount = contri.reduce((domainCount, log) => {
         if (!log.domain) return domainCount;
         const domain = log.domain;

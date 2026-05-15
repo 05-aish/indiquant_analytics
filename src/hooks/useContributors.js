@@ -5,8 +5,7 @@ export function useContributors(){
     const [contri, setContri] = useState([]);
     const [contriloading, setContriLoading] = useState(true);
 
-    useEffect(() => {
-        async function fetchContributors() {
+    const fetchContributors = async () => {
             setContriLoading(true);
             const { data, error } = await supabase
                 .from('contributors')
@@ -19,9 +18,10 @@ export function useContributors(){
             setContriLoading(false);
         }
 
+    useEffect(() => {
         fetchContributors();
 
     },[]);
 
-    return { contri, contriloading };
+    return { contri, contriloading, refetch: fetchContributors };
 }

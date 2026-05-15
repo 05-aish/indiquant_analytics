@@ -53,7 +53,7 @@ const ContributorsTable = () => {
                             }
                         >
                         
-                            <td className='px-4 py-2'>{user.rank}</td>
+                            <td className='px-4 py-2'>{user.rank || '—'}</td>
                             <td className='text-center px-4 py-2 whitespace-nowrap'>{user.name}</td>
                             <td className='text-center px-4 py-2'>{user.domain}</td>
                             <td className='text-center px-4 py-2'>{user.college}</td>

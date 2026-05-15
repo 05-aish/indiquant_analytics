@@ -5,17 +5,13 @@ import { BarChart,  Bar,  XAxis,  YAxis,  Tooltip, ResponsiveContainer,  Cartesi
 import ContributorsTable from './ContributorsTable';
 
 
-const LeaderboardChart = () => {
-    const { contri, contriloading } = useContributors();
+const LeaderboardChart = ({contri, subs}) => {
+
+    if (!contri || contri.length === 0) return <div className="text-slate-500 text-sm">Loading...</div>
     const topContri = contri.sort((a, b) => b.score - a.score).slice(0,10);
     
     const [showTable, setShowTable] = useState(false);
 
-    if(contriloading){
-        return <p className='text-sm p-2 text-gray-400'>
-            Loading...
-        </p>
-    }
     return (
         
         <div className="w-full h-[450px] bg-[#13131a] border border-[#ffffff10] rounded-xl p-6 h-[450px]">

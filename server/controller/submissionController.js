@@ -1,58 +1,79 @@
 const supabase = require('../config/supabase');
-
 const { calculateScores, calculateEvaluationScore } = require('../utils/scoring');
 
 async function createSubmission(req, res) {
-    try{
-        //get valid data from middleware
-        const { contributor_id, project_title, domain } = req.validatedData;
+    try {
+        // get valid data from middleware
+        const { name, college, project_title, domain } = req.validatedData;
 
-        //get scores
+        // calculate scores
         const scores = calculateScores();
         const evaluation_score = calculateEvaluationScore(scores);
 
-        //db record
-        const subRecord = {
-            contributor_id,
-            project_title,
-            domain,
-            evaluation_score,
-            status: 'pending',
-            ...scores
-        };
-
-        //insert to supabase
-        const { data, error } = await supabase
-            .from('submissions')
-            .insert([subRecord])
+        // step 1: insert contributor
+        const { data: newContributor, error: contriError } = await supabase
+            .from('contributors')
+            .insert([{ name, college, domain }])
             .select()
             .single();
-        
-        if(error) {
-            console.log('Supabase error: ', error);
+
+        if (contriError) {
             return res.status(500).json({
-                error: 'Database insertion failed',
-                message: error.message
+                error: 'Contributor insertion failed',
+                message: contriError.message
             });
         }
 
-        //return success
+        // step 2: insert submission using new contributor id
+        const { data: newSubmission, error: subError } = await supabase
+            .from('submissions')
+            .insert([{
+                contributor_id: newContributor.id,
+                project_title,
+                domain,
+                evaluation_score,
+                status: 'pending',
+                ...scores
+            }])
+            .select()
+            .single();
+        
+
+        if (subError) {
+            return res.status(500).json({
+                error: 'Submission insertion failed',
+                message: subError.message
+            });
+        }
+        
+        await supabase
+            .from('contributors')
+            .update({ score: evaluation_score })
+            .eq('id', newContributor.id);
+
+        // step 3: log activity
+        await supabase.from('activity_log').insert([{
+            contributor_id: newContributor.id,
+            action: 'submitted',
+            domain: domain
+        }]);
+
+        // step 4: return success
         res.status(201).json({
             success: true,
-            message: 'Submission recieved and scored',
+            message: 'Submission received and scored',
             data: {
-                id: data.id,
-                project_title: data.project_title,
-                evaluation_score: data.evaluation_score,
-                status: data.status,
-                submitted_at: data.submitted_at
+                id: newSubmission.id,
+                project_title: newSubmission.project_title,
+                evaluation_score: newSubmission.evaluation_score,
+                status: newSubmission.status,
+                submitted_at: newSubmission.submitted_at
             }
         });
 
-    }
-    catch (error) {
+    } catch (error) {
         console.error('Server error:', error);
-        res.status(500).json({ error: 'Internal server error' });    
+        res.status(500).json({ error: 'Internal server error' });
     }
 }
 

@@ -1,7 +1,8 @@
 const { z } = require('zod');
 
 const submissionSchema = z.object({
-  contributor_id: z.string().uuid(),
+  name: z.string(),
+  college: z.string(),
   project_title: z.string().min(1).max(255),
   domain: z.enum(['Full Stack', 'Platforms Engineering', 'Quant Research', 'Finance', 'Machine Learning', 'Data Science', 'DevOps', 'Blockchain']),
 });
