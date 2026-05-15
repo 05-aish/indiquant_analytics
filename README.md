@@ -1,10 +1,10 @@
-# IndiMinds 2026 — Tournament Analytics Dashboard
+# IndiMinds 2026, Tournament Analytics Dashboard
 
 A scalable analytics platform built for the IndiMinds 2026 tournament ecosystem, visualizing contributor performance, engagement trends, operational metrics, and platform activity insights.
 
-🔗 **Live Demo:** https://indiquant-analytics.vercel.app/
-📦 **Repository:** https://github.com/05-aish/indiquant_analytics
-🔗 API Base URL: https://indiquantanalytics-production.up.railway.app
+**Live Demo:** https://indiquant-analytics.vercel.app/
+**Repository:** https://github.com/05-aish/indiquant_analytics
+API Base URL: https://indiquantanalytics-production.up.railway.app
 
 ---
 
@@ -27,10 +27,10 @@ This dashboard provides that view. It is a single-page analytics application tha
 | Platform Activity Insights | Donut chart breaking down contributor distribution across domains |
 
 ### Additional Features
-- **Submission Pipeline** — REST API endpoint accepting new project submissions, auto-scoring them, and persisting to database
-- **Contributors Table** — Toggleable detailed table view with rank, domain, college, score, and color-coded status
-- **Dynamic Color Generation** — Pie chart colors auto-adapt to any number of domains without hardcoding
-- **Real-time Refetch** — Dashboard updates immediately after a new submission without page reload
+- **Submission Pipeline** - REST API endpoint accepting new project submissions, auto-scoring them, and persisting to database
+- **Contributors Table** - Toggleable detailed table view with rank, domain, college, score, and color-coded status
+- **Dynamic Color Generation** - Pie chart colors auto-adapt to any number of domains without hardcoding
+- **Real-time Refetch** - Dashboard updates immediately after a new submission without page reload
 
 ---
 
@@ -61,11 +61,11 @@ This dashboard provides that view. It is a single-page analytics application tha
         fetch   │                 │
                 ▼                 ▼
 ┌───────────────────┐   ┌─────────────────────────┐
-│     Supabase      │   │    Express.js Backend    │
-│   (PostgreSQL)    │◄──│       (Railway)          │
-│                   │   │  Validate → Score →      │
-│  contributors     │   │  Insert contributor +    │
-│  submissions      │   │  submission + activity   │
+│     Supabase      │   │    Express.js Backend   │
+│   (PostgreSQL)    │◄──│       (Railway)         │
+│                   │   │  Validate → Score →     │
+│  contributors     │   │  Insert contributor +   │
+│  submissions      │   │  submission + activity  │
 │  activity_log     │   └─────────────────────────┘
 │  daily_metrics    │
 └───────────────────┘
