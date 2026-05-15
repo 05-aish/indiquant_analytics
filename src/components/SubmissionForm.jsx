@@ -12,7 +12,7 @@ const SubmissionForm = ({ onClose, refetchContri, refetchSubs }) => {
     const handleSubmit = async () => {
        
         console.log('submitted', { name, college, domain, project_title })
-        const response = await fetch('http://localhost:3001/api/submissions', {
+        const response = await fetch('https://indiquantanalytics-production.up.railway.app/api/submissions', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, college, domain, project_title })
