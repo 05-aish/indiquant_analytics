@@ -5,6 +5,7 @@ import { useMetrics } from '../hooks/useMetrics'
 import EngagementChart from '../components/EngagementChart'
 import DomainChart from '../components/DomainChart'
 import LeaderboardChart from '../components/LeaderboardChart'
+import ContributorsTable from '../components/ContributorsTable'
 
 
 const Dashboard = () => {
@@ -32,6 +33,7 @@ const Dashboard = () => {
         <div className="grid grid-cols-2 gap-6 mt-6">
           <DomainChart/>
           <LeaderboardChart/>
+          
         </div>
     </div>
   )

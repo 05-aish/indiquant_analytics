@@ -9,3 +9,20 @@ body {
 svg {
   outline: none;
 }
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #2a2a35;
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #3a3a48;
+}

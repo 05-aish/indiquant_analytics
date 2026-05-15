@@ -65,7 +65,13 @@ const EngagementChart = () => {
                     tick={{ fill: '#64748b', fontSize: 12 }}
                 />
 
-                <Tooltip />
+                <Tooltip
+                    contentStyle={{ 
+                    backgroundColor: '#13131a', 
+                    border: '1px solid #ffffff15',
+                    borderRadius: '8px',
+                    color: '#e2e8f0'
+                }} />
 
                 <Line
                     type="monotone"

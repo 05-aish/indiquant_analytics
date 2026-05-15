@@ -1,20 +1,37 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContributors } from '../hooks/useContributors';
 import { BarChart,  Bar,  XAxis,  YAxis,  Tooltip, ResponsiveContainer,  CartesianGrid } from 'recharts';
+import ContributorsTable from './ContributorsTable';
 
 
 const LeaderboardChart = () => {
     const { contri, contriloading } = useContributors();
     const topContri = contri.sort((a, b) => b.score - a.score).slice(0,10);
-    console.log(topContri);
+    
+    const [showTable, setShowTable] = useState(false);
 
+    if(contriloading){
+        return <p className='text-sm p-2 text-gray-400'>
+            Loading...
+        </p>
+    }
     return (
+        
         <div className="w-full h-[450px] bg-[#13131a] border border-[#ffffff10] rounded-xl p-6 h-[450px]">
+            
+            <div className='flex flex-row justify-between'>
+                <h2 className="text-xl font-semibold mb-4">
+                {showTable? "All Contributors" : "Leaderboard"}
+                </h2>
+                <button
+                    className='cursor-pointer py-2 px-4 rounded text-xs bg-gray-800 font-semibold hover:bg-gray-900'
+                    onClick={() => {setShowTable(!showTable)}}>
+                    {showTable? "Show Leaderboard" : "Show Submissions"}    
+                </button>
+            </div>
 
-            <h2 className="text-xl font-semibold mb-4">
-            Leaderboard
-            </h2>
-
+            {showTable? <ContributorsTable/> : 
             <ResponsiveContainer width="100%" height="100%">
 
                 <BarChart
@@ -43,12 +60,15 @@ const LeaderboardChart = () => {
 
                 />
 
-                <Tooltip 
+                <Tooltip
+                cursor={{
+                    fill: 'rgba(255,255,255,0.04)'
+                }} 
                 contentStyle={{ 
                     backgroundColor: '#13131a', 
                     border: '1px solid #ffffff15',
                     borderRadius: '8px',
-                    color: '#e2e8f0'
+                    color: '#13131a'
                 }}
                 labelStyle={{ color: '#64748b' }}/>
 
@@ -61,6 +81,7 @@ const LeaderboardChart = () => {
                 </BarChart>
 
             </ResponsiveContainer>
+        }
       </div>
     );
 };
