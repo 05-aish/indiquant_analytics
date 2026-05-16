@@ -23,7 +23,7 @@ const DomainChart = ({ contri }) => {
     return (
         <div className="w-full h-[350px] bg-[#13131a] border border-[#ffffff10] rounded-xl p-6 flex flex-col h-[450px]">
             
-            <h2 className="text-xl font-semibold mb-4 text-white">
+            <h2 className="text-lg tracking-wide font-semibold mb-4 text-white">
                  Contribution Domains
             </h2>
             
@@ -39,7 +39,7 @@ const DomainChart = ({ contri }) => {
                                 dataKey="count"
                                 nameKey="domain"
                                 innerRadius="70%"
-                                outerRadius="90%"
+                                outerRadius="100%"
                                 cornerRadius={10}
                                 stroke="none" 
                                 paddingAngle={8}

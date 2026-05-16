@@ -14,10 +14,10 @@ const LeaderboardChart = ({contri, subs}) => {
 
     return (
         
-        <div className="w-full h-[450px] bg-[#13131a] border border-[#ffffff10] rounded-xl p-6 h-[450px]">
+        <div className="w-full h-[450px] bg-[#13131a] border border-[#ffffff10] tracking-wide rounded-xl p-6 h-[450px]">
             
             <div className='flex flex-row justify-between'>
-                <h2 className="text-xl font-semibold mb-4">
+                <h2 className="text-lg font-semibold mb-4">
                 {showTable? "All Contributors" : "Leaderboard"}
                 </h2>
                 <button

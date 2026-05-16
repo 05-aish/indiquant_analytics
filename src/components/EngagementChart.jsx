@@ -30,7 +30,7 @@ const EngagementChart = () => {
 
     return (
         <div className="w-full h-[350px] bg-[#13131a] border border-[#ffffff10] rounded-xl p-6">
-            <h2 className="text-xl font-semibold mb-4">
+            <h2 className="text-lg tracking-wide font-semibold mb-4">
                 Engagement Activity
             </h2>
 

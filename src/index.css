@@ -26,3 +26,23 @@ svg {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #3a3a48;
 }
+
+/* Entire page scrollbar */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a35;
+  border-radius: 9999px;
+  border: 2px solid #0a0a0f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a48;
+}
