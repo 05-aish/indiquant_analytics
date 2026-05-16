@@ -2,10 +2,7 @@ import React from 'react';
 import { useSubmissions } from '../hooks/useSubmissions';
 import { useContributors } from '../hooks/useContributors';
 
-const ContributorsTable = () => {
-
-    const { contri, contriloading } = useContributors();
-    const { subs, subsloading } = useSubmissions();
+const ContributorsTable = ({contri, subs}) => {
 
     const submissionMap = new Map(
       subs.map((sub) => [sub.contributor_id, sub])  

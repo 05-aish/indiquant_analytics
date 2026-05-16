@@ -27,7 +27,7 @@ const LeaderboardChart = ({contri, subs}) => {
                 </button>
             </div>
 
-            {showTable? <ContributorsTable/> : 
+            {showTable? <ContributorsTable contri={contri} subs={subs}/> : 
             <ResponsiveContainer width="100%" height="100%">
 
                 <BarChart

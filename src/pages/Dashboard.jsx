@@ -30,7 +30,7 @@ const Dashboard = () => {
             </div>    
         </div>
 
-        <StatCards onOpen={() => setShowForm(true)}/>
+        <StatCards onOpen={() => setShowForm(true)} contri={contri} subs={subs}/>
         {showForm && <SubmissionForm onClose={() => setShowForm(false)} refetchContri={refetchContri}
     refetchSubs={refetchSubs} />}
         

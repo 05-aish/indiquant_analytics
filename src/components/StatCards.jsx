@@ -5,9 +5,8 @@ import { useSubmissions } from '../hooks/useSubmissions';
 import { useMetrics } from '../hooks/useMetrics';
 import { useActivityLog } from '../hooks/useActivityLog';
 
-const StatCards = ({onOpen}) => {
-  const { contri } = useContributors();
-  const { subs } = useSubmissions();
+const StatCards = ({onOpen, contri, subs}) => {
+  
 
   const avgScore = (subs.reduce((sum, sub) => {
     return sum + sub.evaluation_score
