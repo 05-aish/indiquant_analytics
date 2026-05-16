@@ -10,9 +10,9 @@ API Base URL: https://indiquantanalytics-production.up.railway.app
 
 ## What is this?
 
-IndiMinds is an execution-focused tournament run by IndiQuant to identify high-potential builders, researchers, and engineers. As the tournament grows, the IndiQuant team needs a centralized view of how the ecosystem is evolving — who is submitting, which domains are most active, and how contributor performance is trending over time.
+IndiMinds is an execution-focused tournament run by IndiQuant to identify high-potential builders, researchers, and engineers. As the tournament grows, the IndiQuant team needs a centralized view of how the ecosystem is evolving, who is submitting, which domains are most active, and how contributor performance is trending over time.
 
-This dashboard provides that view. It is a single-page analytics application that ingests contributor and submission data, scores submissions automatically, and visualizes the results in real time — giving the IndiQuant team actionable insight into tournament health at a glance.
+This dashboard provides that view. It is a single-page analytics application that ingests contributor and submission data, scores submissions automatically, and visualizes the results in real time, giving the IndiQuant team actionable insight into tournament health at a glance.
 
 ---
 
@@ -125,7 +125,7 @@ Accepts a new project submission, validates input, auto-scores it, and persists 
 ```
 
 **Scoring Logic:**
-Submissions are auto-scored across three dimensions — documentation, execution, and thinking — and averaged into a final evaluation score. This simulates an automated evaluation pipeline.
+Submissions are auto-scored across three dimensions, documentation, execution, and thinking, and averaged into a final evaluation score. This simulates an automated evaluation pipeline.
 
 **Validation:**
 Input is validated using Zod schema before any database operation. Invalid domain values or missing fields return a structured 400 error.
@@ -134,11 +134,11 @@ Input is validated using Zod schema before any database operation. Invalid domai
 
 ## Scalability Decisions
 
-- **Supabase PostgreSQL** handles horizontal scaling — no changes needed to the application layer as data grows
+- **Supabase PostgreSQL** handles horizontal scaling, no changes needed to the application layer as data grows
 - **Component architecture** in React means new metric modules can be added without touching existing components
-- **Dynamic color generation** in the domain chart uses HSL math to auto-adapt to any number of domains — no hardcoded color arrays
-- **Centralized data fetching** in Dashboard.jsx with prop drilling ensures a single source of truth — avoids duplicate API calls across components
-- **Modular Express backend** follows MVC pattern — controllers, routes, middleware, and utils are fully separated for maintainability
+- **Dynamic color generation** in the domain chart uses HSL math to auto-adapt to any number of domains, no hardcoded color arrays
+- **Centralized data fetching** in Dashboard.jsx with prop drilling ensures a single source of truth, avoids duplicate API calls across components
+- **Modular Express backend** follows MVC pattern, controllers, routes, middleware, and utils are fully separated for maintainability
 
 ---
 
