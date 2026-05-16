@@ -33,15 +33,17 @@ const Dashboard = () => {
         <StatCards onOpen={() => setShowForm(true)}/>
         {showForm && <SubmissionForm onClose={() => setShowForm(false)} refetchContri={refetchContri}
     refetchSubs={refetchSubs} />}
-        <div className="grid grid-cols-2 gap-6 mt-6">
-          <GrowthChart metrics={metrics}/>
-          <EngagementChart/>
-        </div>
+        
 
         <div className="grid grid-cols-2 gap-6 mt-6">
           <DomainChart contri={contri}/>
           <LeaderboardChart contri={contri} subs={subs}/>
           
+        </div>
+
+        <div className="grid grid-cols-2 gap-6 mt-6">
+          <GrowthChart metrics={metrics}/>
+          <EngagementChart/>
         </div>
     </div>
   )
