@@ -7,11 +7,11 @@ const SubmissionForm = ({ onClose, refetchContri, refetchSubs }) => {
     const [project_title, setProject] = useState('');
     const [domain, setDomain] = useState('');
 
-    const [error, setError] = useState('')
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async () => {
-       
-        console.log('submitted', { name, college, domain, project_title })
+        setLoading(true);
         const response = await fetch('https://indiquantanalytics-production.up.railway.app/api/submissions', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -24,6 +24,7 @@ const SubmissionForm = ({ onClose, refetchContri, refetchSubs }) => {
             console.log('refetching..')
             refetchContri();
             refetchSubs();
+            setLoading(false);
             onClose();
 
         } else {
@@ -91,8 +92,9 @@ const SubmissionForm = ({ onClose, refetchContri, refetchSubs }) => {
 
                     <button className=' px-4 py-2 font-semibold bg-[#6366f1]/50 hover:bg-[#6366f1]/40  rounded cursor-pointer'
                         type='button'
+                        disabled={loading}
                         onClick={handleSubmit}>
-                        Submit
+                        {loading? "Submitting.." : "Submit"}
                     </button>
 
                     {error && <p className="text-red-400 text-sm mt-2">{error}</p>}
