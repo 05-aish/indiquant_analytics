@@ -9,7 +9,7 @@ A scalable analytics platform built for the IndiMinds 2026 tournament ecosystem,
 ![Dashboard](public/page2.png)
 
 ### Submissions
-![Dashboard](public/submissions.png)
+![Dashboard](public/submission.png)
 
 **Live Demo:** https://indiquant-analytics.vercel.app/
 **Repository:** https://github.com/05-aish/indiquant_analytics
