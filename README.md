@@ -2,6 +2,15 @@
 
 A scalable analytics platform built for the IndiMinds 2026 tournament ecosystem, visualizing contributor performance, engagement trends, operational metrics, and platform activity insights.
 
+
+### Dashboard
+![Dashboard](public/page.png)
+
+![Dashboard](public/page2.png)
+
+### Submissions
+![Dashboard](public/submissions.png)
+
 **Live Demo:** https://indiquant-analytics.vercel.app/
 **Repository:** https://github.com/05-aish/indiquant_analytics
 API Base URL: https://indiquantanalytics-production.up.railway.app
