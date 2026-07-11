@@ -12,7 +12,7 @@ const SubmissionForm = ({ onClose, refetchContri, refetchSubs }) => {
 
     const handleSubmit = async () => {
         setLoading(true);
-        const response = await fetch('https://indiquant-analytics.onrender.com/', {
+        const response = await fetch('https://indiquant-analytics.onrender.com/api/submissions', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, college, domain, project_title })
