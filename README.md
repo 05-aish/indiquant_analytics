@@ -13,7 +13,7 @@ A scalable analytics platform built for the IndiMinds 2026 tournament ecosystem,
 
 **Live Demo:** https://indiquant-analytics.vercel.app/
 **Repository:** https://github.com/05-aish/indiquant_analytics
-API Base URL: https://indiquantanalytics-production.up.railway.app
+API Base URL: https://indiquant-analytics.onrender.com/
 
 ---
 
@@ -54,7 +54,7 @@ This dashboard provides that view. It is a single-page analytics application tha
 | Express.js | Backend API | Lightweight Node server for submission ingestion pipeline |
 | Zod | Input validation | Schema-based validation, type-safe request handling |
 | Vercel | Frontend deployment | Zero-config deployment for Vite apps |
-| Railway | Backend deployment | Simple Node.js hosting with environment variable support |
+| Render | Backend deployment | Simple Node.js hosting with environment variable support |
 
 ---
 
@@ -71,7 +71,7 @@ This dashboard provides that view. It is a single-page analytics application tha
                 ▼                 ▼
 ┌───────────────────┐   ┌─────────────────────────┐
 │     Supabase      │   │    Express.js Backend   │
-│   (PostgreSQL)    │◄──│       (Railway)         │
+│   (PostgreSQL)    │◄──│       (Render)         │
 │                   │   │  Validate → Score →     │
 │  contributors     │   │  Insert contributor +   │
 │  submissions      │   │  submission + activity  │
